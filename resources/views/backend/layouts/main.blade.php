@@ -2,654 +2,274 @@
 @extends('backend.layouts.app')
 @section('content')
 
-<noscript>
-    <div class="alert alert-block span10">
-        <h4 class="alert-heading">Warning!</h4>
-        <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard v3</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v3</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
-</noscript>
+    <!-- /.content-header -->
 
-<!-- start: Content -->
-<div id="content" class="span10">
-
-
-<ul class="breadcrumb">
-    <li>
-        <i class="icon-home"></i>
-        <a href="index.html">Home</a> 
-        <i class="icon-angle-right"></i>
-    </li>
-    <li><a href="#">Dashboard</a></li>
-</ul>
-
-<div class="row-fluid">
-    
-    <div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
-        <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-        <div class="number">854<i class="icon-arrow-up"></i></div>
-        <div class="title">visits</div>
-        <div class="footer">
-            <a href="#"> read full report</a>
-        </div>	
-    </div>
-    <div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-        <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
-        <div class="number">123<i class="icon-arrow-up"></i></div>
-        <div class="title">sales</div>
-        <div class="footer">
-            <a href="#"> read full report</a>
-        </div>
-    </div>
-    <div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-        <div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-        <div class="number">982<i class="icon-arrow-up"></i></div>
-        <div class="title">orders</div>
-        <div class="footer">
-            <a href="#"> read full report</a>
-        </div>
-    </div>
-    <div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
-        <div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-        <div class="number">678<i class="icon-arrow-down"></i></div>
-        <div class="title">visits</div>
-        <div class="footer">
-            <a href="#"> read full report</a>
-        </div>
-    </div>	
-    
-</div>		
-
-<div class="row-fluid">
-    
-    <div class="span8 widget blue" onTablet="span7" onDesktop="span8">
-        
-        <div id="stats-chart2"  style="height:282px" ></div>
-        
-    </div>
-    
-    <div class="sparkLineStats span4 widget green" onTablet="span5" onDesktop="span4">
-
-        <ul class="unstyled">
-            
-            <li><span class="sparkLineStats3"></span> 
-                Pageviews: 
-                <span class="number">781</span>
-            </li>
-            <li><span class="sparkLineStats4"></span>
-                Pages / Visit: 
-                <span class="number">2,19</span>
-            </li>
-            <li><span class="sparkLineStats5"></span>
-                Avg. Visit Duration: 
-                <span class="number">00:02:58</span>
-            </li>
-            <li><span class="sparkLineStats6"></span>
-                Bounce Rate: <span class="number">59,83%</span>
-            </li>
-            <li><span class="sparkLineStats7"></span>
-                % New Visits: 
-                <span class="number">70,79%</span>
-            </li>
-            <li><span class="sparkLineStats8"></span>
-                % Returning Visitor: 
-                <span class="number">29,21%</span>
-            </li>
-
-        </ul>
-        
-        <div class="clearfix"></div>
-
-    </div><!-- End .sparkStats -->
-
-</div>
-
-<div class="row-fluid hideInIE8 circleStats">
-    
-    <div class="span2" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox yellow">
-            <div class="header">Disk Space Usage</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="58" class="whiteCircle" />
-            </div>		
-            <div class="footer">
-                <span class="count">
-                    <span class="number">20000</span>
-                    <span class="unit">MB</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">50000</span>
-                    <span class="unit">MB</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-
-    <div class="span2" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox green">
-            <div class="header">Bandwidth</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="78" class="whiteCircle" />
-            </div>
-            <div class="footer">
-                <span class="count">
-                    <span class="number">5000</span>
-                    <span class="unit">GB</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">5000</span>
-                    <span class="unit">GB</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-
-    <div class="span2" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox greenDark">
-            <div class="header">Memory</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="100" class="whiteCircle" />
-            </div>
-            <div class="footer">
-                <span class="count">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-
-    <div class="span2 noMargin" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox pink">
-            <div class="header">CPU</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="83" class="whiteCircle" />
-            </div>
-            <div class="footer">
-                <span class="count">
-                    <span class="number">64</span>
-                    <span class="unit">GHz</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">3.2</span>
-                    <span class="unit">GHz</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-
-    <div class="span2" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox orange">
-            <div class="header">Memory</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="100" class="whiteCircle" />
-            </div>
-            <div class="footer">
-                <span class="count">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-
-    <div class="span2" onTablet="span4" onDesktop="span2">
-        <div class="circleStatsItemBox greenLight">
-            <div class="header">Memory</div>
-            <span class="percent">percent</span>
-            <div class="circleStat">
-                <input type="text" value="100" class="whiteCircle" />
-            </div>
-            <div class="footer">
-                <span class="count">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>
-                <span class="sep"> / </span>
-                <span class="value">
-                    <span class="number">64</span>
-                    <span class="unit">GB</span>
-                </span>	
-            </div>
-        </div>
-    </div>
-            
-</div>		
-            
-<div class="row-fluid">
-    
-    <div class="widget blue span5" onTablet="span6" onDesktop="span5">
-        
-        <h2><span class="glyphicons globe"><i></i></span> Demographics</h2>
-        
-        <hr>
-        
-        <div class="content">
-            
-            <div class="verticalChart">
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>37%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">US</div>
-                
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Online Store Visitors</h3>
+                  <a href="javascript:void(0);">View Report</a>
                 </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>16%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">PL</div>
-                
+              </div>
+              <div class="card-body">
+                <div class="d-flex">
+                  <p class="d-flex flex-column">
+                    <span class="text-bold text-lg">820</span>
+                    <span>Visitors Over Time</span>
+                  </p>
+                  <p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fas fa-arrow-up"></i> 12.5%
+                    </span>
+                    <span class="text-muted">Since last week</span>
+                  </p>
                 </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>12%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">GB</div>
-                
+                <!-- /.d-flex -->
+
+                <div class="position-relative mb-4">
+                  <canvas id="visitors-chart" height="200"></canvas>
                 </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>9%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">DE</div>
-                
+
+                <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fas fa-square text-primary"></i> This Week
+                  </span>
+
+                  <span>
+                    <i class="fas fa-square text-gray"></i> Last Week
+                  </span>
                 </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>7%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">NL</div>
-                
-                </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>6%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">CA</div>
-                
-                </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>5%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">FI</div>
-                
-                </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>4%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">RU</div>
-                
-                </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>3%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">AU</div>
-                
-                </div>
-                
-                <div class="singleBar">
-                
-                    <div class="bar">
-                    
-                        <div class="value">
-                            <span>1%</span>
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="title">N/A</div>
-                
-                </div>	
-                
-                <div class="clearfix"></div>
-                
+              </div>
             </div>
-        
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header border-0">
+                <h3 class="card-title">Products</h3>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fas fa-bars"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Sales</th>
+                    <th>More</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <img src="{{ asset('backend/dist/img/default-150x150.png') }}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Some Product
+                    </td>
+                    <td>$13 USD</td>
+                    <td>
+                      <small class="text-success mr-1">
+                        <i class="fas fa-arrow-up"></i>
+                        12%
+                      </small>
+                      12,000 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fas fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="{{ asset('backend/dist/img/default-150x150.png') }}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Another Product
+                    </td>
+                    <td>$29 USD</td>
+                    <td>
+                      <small class="text-warning mr-1">
+                        <i class="fas fa-arrow-down"></i>
+                        0.5%
+                      </small>
+                      123,234 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fas fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="{{ asset('backend/dist/img/default-150x150.png') }}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Amazing Product
+                    </td>
+                    <td>$1,230 USD</td>
+                    <td>
+                      <small class="text-danger mr-1">
+                        <i class="fas fa-arrow-down"></i>
+                        3%
+                      </small>
+                      198 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fas fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="{{ asset('backend/dist/img/default-150x150.png') }}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Perfect Item
+                      <span class="badge bg-danger">NEW</span>
+                    </td>
+                    <td>$199 USD</td>
+                    <td>
+                      <small class="text-success mr-1">
+                        <i class="fas fa-arrow-up"></i>
+                        63%
+                      </small>
+                      87 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fas fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Sales</h3>
+                  <a href="javascript:void(0);">View Report</a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="d-flex">
+                  <p class="d-flex flex-column">
+                    <span class="text-bold text-lg">$18,230.00</span>
+                    <span>Sales Over Time</span>
+                  </p>
+                  <p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fas fa-arrow-up"></i> 33.1%
+                    </span>
+                    <span class="text-muted">Since last month</span>
+                  </p>
+                </div>
+                <!-- /.d-flex -->
+
+                <div class="position-relative mb-4">
+                  <canvas id="sales-chart" height="200"></canvas>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fas fa-square text-primary"></i> This year
+                  </span>
+
+                  <span>
+                    <i class="fas fa-square text-gray"></i> Last year
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header border-0">
+                <h3 class="card-title">Online Store Overview</h3>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-sm btn-tool">
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-sm btn-tool">
+                    <i class="fas fa-bars"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                  <p class="text-success text-xl">
+                    <i class="ion ion-ios-refresh-empty"></i>
+                  </p>
+                  <p class="d-flex flex-column text-right">
+                    <span class="font-weight-bold">
+                      <i class="ion ion-android-arrow-up text-success"></i> 12%
+                    </span>
+                    <span class="text-muted">CONVERSION RATE</span>
+                  </p>
+                </div>
+                <!-- /.d-flex -->
+                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                  <p class="text-warning text-xl">
+                    <i class="ion ion-ios-cart-outline"></i>
+                  </p>
+                  <p class="d-flex flex-column text-right">
+                    <span class="font-weight-bold">
+                      <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
+                    </span>
+                    <span class="text-muted">SALES RATE</span>
+                  </p>
+                </div>
+                <!-- /.d-flex -->
+                <div class="d-flex justify-content-between align-items-center mb-0">
+                  <p class="text-danger text-xl">
+                    <i class="ion ion-ios-people-outline"></i>
+                  </p>
+                  <p class="d-flex flex-column text-right">
+                    <span class="font-weight-bold">
+                      <i class="ion ion-android-arrow-down text-danger"></i> 1%
+                    </span>
+                    <span class="text-muted">REGISTRATION RATE</span>
+                  </p>
+                </div>
+                <!-- /.d-flex -->
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-6 -->
         </div>
-        
-    </div><!--/span-->
-    
-    <div class="widget span3 red" onTablet="span6" onDesktop="span3">
-        
-        <h2><span class="glyphicons pie_chart"><i></i></span> Browsers</h2>
-        
-        <hr>
-        
-        <div class="content">
-            
-            <div class="browserStat big">
-                <img src="{{ asset('backend/img/browser-chrome-big.png') }}" alt="Chrome">
-                <span>34%</span>
-            </div>
-            <div class="browserStat big">
-                <img src="{{ asset('backend/img/browser-firefox-big.png') }}" alt="Firefox">
-                <span>34%</span>
-            </div>
-            <div class="browserStat">
-                <img src="{{ asset('backend/img/browser-ie.png') }}" alt="Internet Explorer">
-                <span>34%</span>
-            </div>
-            <div class="browserStat">
-                <img src="{{ asset('backend/img/browser-safari.png') }}" alt="Safari">
-                <span>34%</span>
-            </div>
-            <div class="browserStat">
-                <img src="{{ asset('backend/img/browser-opera.png') }}" alt="Opera">
-                <span>34%</span>
-            </div>	
-                    
-            
-        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
     </div>
-    
-    <div class="widget yellow span4 noMargin" onTablet="span12" onDesktop="span4">
-        <h2><span class="glyphicons fire"><i></i></span> Server Load</h2>
-        <hr>
-        <div class="content">
-             <div id="serverLoad2" style="height:224px;"></div>
-        </div>
-    </div>
-
-</div>
-
-<div class="row-fluid">
-    
-    <div class="box black span4" onTablet="span6" onDesktop="span4">
-        <div class="box-header">
-            <h2><i class="halflings-icon white list"></i><span class="break"></span>Weekly Stat</h2>
-            <div class="box-icon">
-                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-            </div>
-        </div>
-        <div class="box-content">
-            <ul class="dashboard-list metro">
-                <li>
-                    <a href="#">
-                        <i class="icon-arrow-up green"></i>                               
-                        <strong>92</strong>
-                        New Comments                                    
-                    </a>
-                </li>
-              <li>
-                <a href="#">
-                  <i class="icon-arrow-down red"></i>
-                  <strong>15</strong>
-                  New Registrations
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-minus blue"></i>
-                  <strong>36</strong>
-                  New Articles                                    
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-comment yellow"></i>
-                  <strong>45</strong>
-                  User reviews                                    
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-arrow-up green"></i>                               
-                  <strong>112</strong>
-                  New Comments                                    
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-arrow-down red"></i>
-                  <strong>31</strong>
-                  New Registrations
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-minus blue"></i>
-                  <strong>93</strong>
-                  New Articles                                    
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-comment yellow"></i>
-                  <strong>256</strong>
-                  User reviews                                    
-                </a>
-              </li>
-            </ul>
-        </div>
-    </div><!--/span-->
-    
-    <div class="box black span4" onTablet="span6" onDesktop="span4">
-        <div class="box-header">
-            <h2><i class="halflings-icon white user"></i><span class="break"></span>Last Users</h2>
-            <div class="box-icon">
-                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-            </div>
-        </div>
-        <div class="box-content">
-            <ul class="dashboard-list metro">
-                <li class="green">
-                    <a href="#">
-                        <img class="avatar" alt="Lucas" src="{{ asset('backend/img/avatar.jpg') }}">
-                    </a>
-                    <strong>Name:</strong> Łukasz Holeczek<br>
-                    <strong>Since:</strong> Jul 25, 2012 11:09<br>
-                    <strong>Status:</strong> Approved             
-                </li>
-                <li class="yellow">
-                    <a href="#">
-                        <img class="avatar" alt="Bill" src="{{ asset('backend/img/avatar9.jpg') }}">
-                    </a>
-                    <strong>Name:</strong> Bill Cole<br>
-                    <strong>Since:</strong> Jul 25, 2012 11:09<br>
-                    <strong>Status:</strong> Pending                                
-                </li>
-                <li class="red">
-                    <a href="#">
-                        <img class="avatar" alt="Jane" src="{{ asset('backend/img/avatar5.jpg') }}">
-                    </a>
-                    <strong>Name:</strong> Jane Sanchez<br>
-                    <strong>Since:</strong> Jul 25, 2012 11:09<br>
-                    <strong>Status:</strong> Banned                                  
-                </li>
-                <li class="blue">
-                    <a href="#">
-                        <img class="avatar" alt="Kate" src="{{ asset('backend/img/avatar6.jpg') }}">
-                    </a>
-                    <strong>Name:</strong> Kate Presley<br>
-                    <strong>Since:</strong> Jul 25, 2012 11:09<br>
-                    <strong>Status:</strong> Updated                                 
-                </li>
-            </ul>
-        </div>
-    </div><!--/span-->
-    
-    <div class="box black span4 noMargin" onTablet="span12" onDesktop="span4">
-        <div class="box-header">
-            <h2><i class="halflings-icon white check"></i><span class="break"></span>To Do List</h2>
-            <div class="box-icon">
-                <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-            </div>
-        </div>
-        <div class="box-content">
-            <div class="todo metro">
-                <ul class="todo-list">
-                    <li class="red">
-                        <a class="action icon-check-empty" href="#"></a>	
-                        Windows Phone 8 App 
-                        <strong>today</strong>
-                    </li>
-                    <li class="red">
-                        <a class="action icon-check-empty" href="#"></a>
-                        New frontend layout
-                        <strong>today</strong>
-                    </li>
-                    <li class="yellow">
-                        <a class="action icon-check-empty" href="#"></a>
-                        Hire developers
-                        <strong>tommorow</strong>
-                    </li>
-                    <li class="yellow">
-                        <a class="action icon-check-empty" href="#"></a>
-                        Windows Phone 8 App
-                        <strong>tommorow</strong>
-                    </li>
-                    <li class="green">
-                        <a class="action icon-check-empty" href="#"></a>
-                        New frontend layout
-                        <strong>this week</strong>
-                    </li>
-                    <li class="green">
-                        <a class="action icon-check-empty" href="#"></a>
-                        Hire developers
-                        <strong>this week</strong>
-                    </li>
-                    <li class="blue">
-                        <a class="action icon-check-empty" href="#"></a>
-                        New frontend layout
-                        <strong>this month</strong>
-                    </li>
-                    <li class="blue">
-                        <a class="action icon-check-empty" href="#"></a>
-                        Hire developers
-                        <strong>this month</strong>
-                    </li>
-                </ul>
-            </div>	
-        </div>
-    </div>
-
-</div>
-
-<div class="row-fluid">	
-
-    <a class="quick-button metro yellow span2">
-        <i class="icon-group"></i>
-        <p>Users</p>
-        <span class="badge">237</span>
-    </a>
-    <a class="quick-button metro red span2">
-        <i class="icon-comments-alt"></i>
-        <p>Comments</p>
-        <span class="badge">46</span>
-    </a>
-    <a class="quick-button metro blue span2">
-        <i class="icon-shopping-cart"></i>
-        <p>Orders</p>
-        <span class="badge">13</span>
-    </a>
-    <a class="quick-button metro green span2">
-        <i class="icon-barcode"></i>
-        <p>Products</p>
-    </a>
-    <a class="quick-button metro pink span2">
-        <i class="icon-envelope"></i>
-        <p>Messages</p>
-        <span class="badge">88</span>
-    </a>
-    <a class="quick-button metro black span2">
-        <i class="icon-calendar"></i>
-        <p>Calendar</p>
-    </a>
-    
-    <div class="clearfix"></div>
-                    
-</div><!--/row-->
-
-
-
-</div><!--/.fluid-container-->
-
-@endsection
+    <!-- /.content -->
+  </div>
+  @endsection

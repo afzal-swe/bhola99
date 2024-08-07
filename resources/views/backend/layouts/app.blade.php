@@ -1,153 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from bootstrapmaster.com/live/metro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2018 16:56:12 GMT -->
 <head>
-	
-	<!-- start: Meta -->
-	<meta charset="utf-8">
-	<title>Metro Admin Template - Metro UI Style Bootstrap Admin Template</title>
-	<meta name="description" content="Metro Admin Template.">
-	<meta name="author" content="Łukasz Holeczek">
-	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<!-- end: Meta -->
-	
-	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- end: Mobile Specific -->
-	
-	<!-- start: CSS -->
-	<link id="bootstrap-style" href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('backend/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
-	<link id="base-style" href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
-	<link id="base-style-responsive" href="{{ asset('backend/css/style-responsive.css') }}" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-	<!-- end: CSS -->
-	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard 3</title>
 
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<link id="ie-style" href="css/ie.css" rel="stylesheet">
-	<![endif]-->
-	
-	<!--[if IE 9]>
-		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
-	<![endif]-->
-		
-	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="{{ asset('backend/img/favicon.ico') }}">
-	<!-- end: Favicon -->
-	
-		
-		
-		
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
 </head>
+<!--
+`body` tag options:
 
-<body>
-		<!-- start: Header -->
-	<div class="navbar">
-		@include('backend.layouts.partial.header')
-	</div>
-	<!-- start: Header -->
-	
-		<div class="container-fluid-full">
-		<div class="row-fluid">
-				
-			<!-- start: Main Menu -->
-			@include('backend.layouts.partial.sidebar')
-			<!-- end: Main Menu -->
-			
-			@yield('content')
-	
-			<!-- end: Content -->
-		</div><!--/#content.span10-->
-		</div><!--/fluid-row-->
-		
-	<div class="modal hide fade" id="myModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">×</button>
-			<h3>Settings</h3>
-		</div>
-		<div class="modal-body">
-			<p>Here settings can be configured...</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#" class="btn" data-dismiss="modal">Close</a>
-			<a href="#" class="btn btn-primary">Save changes</a>
-		</div>
-	</div>
-	
-	<div class="clearfix"></div>
-	
-	<footer>
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
 
-		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creativeLabs</a></span>
-			<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Metro</a></span>
-		</p>
+  * sidebar-collapse
+  * sidebar-mini
+-->
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  @include('backend.layouts.partial.navbar')
+  <!-- /.navbar -->
 
-	</footer>
-	
-	<!-- start: JavaScript-->
+  <!-- Main Sidebar Container -->
+  
+@include('backend.layouts.partial.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  @yield('content')
+  <!-- /.content-wrapper -->
 
-		<script src="{{ asset('backend/js/jquery-1.9.1.min.js') }}"></script>
-	<script src="{{ asset('backend/js/jquery-migrate-1.0.0.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery-ui-1.10.0.custom.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.ui.touch-punch.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/modernizr.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.cookie.js') }}"></script>
-	
-		<script src='{{ asset('backend/js/fullcalendar.min.js') }}'></script>
-	
-		<script src='{{ asset('backend/js/jquery.dataTables.min.js') }}'></script>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 
-		<script src="{{ asset('backend/js/excanvas.js') }}"></script>
-	<script src="{{ asset('backend/js/jquery.flot.js') }}"></script>
-	<script src="{{ asset('backend/js/jquery.flot.pie.js') }}"></script>
-	<script src="{{ asset('backend/js/jquery.flot.stack.js') }}"></script>
-	<script src="{{ asset('backend/js/jquery.flot.resize.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.chosen.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.uniform.min.js') }}"></script>
-		
-		<script src="{{ asset('backend/js/jquery.cleditor.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.noty.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.elfinder.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.raty.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.iphone.toggle.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.uploadify-3.1.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.gritter.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.imagesloaded.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.masonry.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.knob.modified.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/jquery.sparkline.min.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/counter.js') }}"></script>
-	
-		<script src="{{ asset('backend/js/retina.js') }}"></script>
+  <!-- Main Footer -->
+@include('backend.layouts.partial.footer')
+</div>
+<!-- ./wrapper -->
 
-		<script src="{{ asset('backend/js/custom.js') }}"></script>
-	<!-- end: JavaScript-->
-	
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE -->
+<script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('backend/dist/js/demo.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('backend/dist/js/pages/dashboard3.js') }}"></script>
 </body>
-
-<!-- Mirrored from bootstrapmaster.com/live/metro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2018 16:56:47 GMT -->
 </html>
