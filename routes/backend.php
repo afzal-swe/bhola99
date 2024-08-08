@@ -17,6 +17,10 @@ Route::middleware(['auth'])->group(function () {
         Route::group(['prefix' => '/category'], function () {
             Route::controller(CategoryController::class)->group(function () {
                 Route::get('/', 'Category_View')->name('category.view');
+                Route::post('/create', 'Category_Create')->name('category.create');
+                Route::get('/edit/{id}', 'Category_Edit');
+                Route::post('/update', 'Category_Update')->name('category.update');
+                Route::get('/delete/{slug}', 'Category_Delete')->name('category.delete');
             });
         });
     });
