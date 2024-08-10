@@ -21,9 +21,14 @@
                 <li class="nav-item">
                    <a class="nav-link" href="blog_list.html">Blog</a>
                 </li>
+                
                 <li class="nav-item">
                    <a class="nav-link" href="{{ route('contact.view') }}">Contact</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('show_cart') }}">Cart [ 0 ]</a>
+               </li>
 
                 @if (Route::has('login'))
 

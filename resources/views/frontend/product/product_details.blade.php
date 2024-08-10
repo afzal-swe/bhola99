@@ -105,7 +105,7 @@
                             <span class="ctl increment"><i class="material-icons">add</i></span>
                             <input type="hidden" name="product_id" value="23910">
                         </label>
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('add_cart',$details->slug) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="submit" class="option2" value="Add to Cart">
                          </form><br>

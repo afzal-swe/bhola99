@@ -56,4 +56,29 @@ class CartController extends Controller
             return redirect('login');
         }
     }
+
+    // Show Cart Function
+    public function Show_Cart()
+    {
+
+        if (Auth::id()) {
+            $id = Auth::user()->id;
+
+            $cart_view = DB::table($this->db_cart)->where('user_id', $id)->get();
+            // $cart_view = Cart::where('user_id', '=', $id)->get();
+
+            return view('frontend.cart.cart_view', compact('cart_view'));
+        } else {
+            return redirect('login');
+        }
+    }
+
+    // Remoce Cart Function
+    public function Cart_Product_Remove($id)
+    {
+        DB::table($this->db_cart)->where('id', $id)->delete();
+
+        $notification = array('message' => 'Cart Delete Successfully', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
 }

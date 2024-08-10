@@ -31,6 +31,8 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['prefix' => '/cart'], function () {
         Route::controller(CartController::class)->group(function () {
             Route::post('/{slug}', 'Add_To_Cart')->name('add_cart');
+            Route::get('/view', 'Show_Cart')->name('show_cart');
+            Route::get('/remove/{id}', 'Cart_Product_Remove')->name('cart_product_remove');
         });
     });
 });
