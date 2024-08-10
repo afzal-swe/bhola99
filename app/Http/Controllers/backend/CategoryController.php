@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function Category_View()
     {
-        $category = DB::table($this->db_categories)->get();
+        $category = DB::table($this->db_categories)->orderBy('id', 'DESC')->get();
         return view('backend.category.view', compact('category'));
     }
 

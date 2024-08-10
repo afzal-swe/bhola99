@@ -23,7 +23,10 @@ class ProductController extends Controller
 
     public function Product_View()
     {
-        $product = DB::table($this->db_products)->orderBy('id', 'DESC')->get();
+        $product = DB::table($this->db_products)
+            ->join('categories', 'products.catagory', 'categories.id')
+            ->select('products.*', 'categories.name')
+            ->orderBy('id', 'DESC')->get();
         return view('backend.products.product_view', compact('product'));
     }
 
@@ -60,7 +63,7 @@ class ProductController extends Controller
         $image = $request->image;
         if ($image) {
             $image_one = uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(350, 350)->save("images/products/" . $image_one);
+            Image::make($image)->resize(295, 380)->save("images/products/" . $image_one);
             $data['image'] = "images/products/" . $image_one;
         }
 
@@ -101,7 +104,7 @@ class ProductController extends Controller
         $oldimage = $request->oldimage;
         if ($image) {
             $image_one = uniqid() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(350, 350)->save("images/products/" . $image_one);
+            Image::make($image)->resize(295, 380)->save("images/products/" . $image_one);
             $data['image'] = "images/products/" . $image_one;
 
             DB::table($this->db_products)->where('slug', $slug)->update($data);

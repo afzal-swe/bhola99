@@ -5,7 +5,7 @@
           <div class="col-md-4">
               <div class="full">
                  <div class="logo_footer">
-                   <a href="#"><img width="210" src="{{ asset('frontend/images/logo.png') }}" alt="#" /></a>
+                   <a href="{{ route('frontend_home_page') }}"><img width="210" src="{{ asset('frontend/images/logo.png') }}" alt="#" /></a>
                  </div>
                  <div class="information_f">
                    <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
@@ -22,12 +22,12 @@
                 <div class="widget_menu">
                    <h3>Menu</h3>
                    <ul>
-                      <li><a href="#">Home</a></li>
+                      <li><a href="{{ route('frontend_home_page') }}">Home</a></li>
                       <li><a href="#">About</a></li>
                       <li><a href="#">Services</a></li>
                       <li><a href="#">Testimonial</a></li>
                       <li><a href="#">Blog</a></li>
-                      <li><a href="#">Contact</a></li>
+                      <li><a href="{{ route('contact.view') }}">Contact</a></li>
                    </ul>
                 </div>
              </div>
@@ -71,9 +71,8 @@
  </footer>
  <!-- footer end -->
  <div class="cpy_">
-    <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br>
-    
-       Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+    <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">CodeArtist.IT</a><br>
+
     
     </p>
  </div>

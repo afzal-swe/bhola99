@@ -53,7 +53,7 @@
                     <tr>
                       <td>{{ ++$key }}</td>
                       <td><img src="{{ asset($row->image) }}" alt="" style="height: 40px; width:60px;"></td>
-                      <td>{{ $row->title }}</td>
+                      <td>{{ $row->name }}</td>
                       <td>{{ $row->title }}</td>
                       <td>{{ $row->price }}</td>
                       <td>{{ $row->discount_price }}</td>
