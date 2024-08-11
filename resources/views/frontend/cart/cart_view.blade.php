@@ -50,7 +50,7 @@
             
         </div><br>
       
-            <a href="#" class="btn btn-info" >Cash On Delivery</a>
+            <a href="{{ route('cash_order') }}" class="btn btn-info" >Cash On Delivery</a>
             <a href="#" class="btn btn-info" >Pay Using Card</a>
            
     </div> <!-- end col -->
