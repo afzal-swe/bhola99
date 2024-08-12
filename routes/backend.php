@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\SettingsController;
+use App\Http\Controllers\backend\CartController;
 
 
 Route::middleware(['auth'])->group(function () {
@@ -60,6 +61,13 @@ Route::middleware(['auth'])->group(function () {
                 // Route::get('/edit/{slug}', 'Product_Edit')->name('product.edit');
                 // Route::post('/update/{slug}', 'Product_Update')->name('product.update');
                 Route::get('/delete/{id}', 'Order_Delete')->name('order.delete');
+            });
+        });
+
+        // Cart Section
+        Route::group(['prefix' => '/cart'], function () {
+            Route::controller(CartController::class)->group(function () {
+                Route::get('/', 'View_Cart')->name('manage.cart');
             });
         });
 
