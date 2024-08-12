@@ -47,6 +47,7 @@ class OrderController extends Controller
             $data['product_quantity'] = $card_data->quantity;
             $data['product_id'] = $card_data->product_id;
             $data['total'] = $card_data->price;
+            $data['image'] = $card_data->image;
             $data['created_at'] = Carbon::now();
 
             DB::table($this->db_order)->insert($data);

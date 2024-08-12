@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('product_price')->nullable();
             $table->string('product_quantity')->nullable();
             $table->string('product_id')->nullable();
+            $table->string('image')->nullable();
             $table->string('total')->nullable();
 
             $table->timestamps();

@@ -32,6 +32,26 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
+                User Section
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('user.view') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage User</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
                 Category Section
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
@@ -75,6 +95,82 @@
             </ul>
           </li>
           {{-- Product Options End --}}
+
+          {{-- Cart Options --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Cart Section
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Cart</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- Cart Options End --}}
+
+          {{-- Order Options --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Order Section
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('orders_view') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Order</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- Order Options End --}}
+
+          {{-- Order Options --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Settings Section
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('social.setting') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Social Setting</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Seo Setting</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Website Setting</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- Order Options End --}}
           
         </ul>
       </nav>
