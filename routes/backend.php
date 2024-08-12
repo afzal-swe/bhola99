@@ -65,11 +65,28 @@ Route::middleware(['auth'])->group(function () {
 
         // Settings Section
         Route::group(['prefix' => '/settings'], function () {
+            // Social Settings
             Route::group(['prefix' => '/social'], function () {
                 Route::controller(SettingsController::class)->group(function () {
                     Route::get('/', 'Social')->name('social.setting');
                     Route::post('/store', 'Social_Store')->name('social.store');
                     Route::post('/update/{id}', 'Social_Update')->name('social.update');
+                });
+            });
+            // Seo Settings
+            Route::group(['prefix' => '/seo'], function () {
+                Route::controller(SettingsController::class)->group(function () {
+                    Route::get('/', 'Seo')->name('seo.setting');
+                    Route::post('/store', 'Seo_Store')->name('seo.store');
+                    Route::post('/update/{id}', 'Seo_Update')->name('seo.update');
+                });
+            });
+            // Website Settings
+            Route::group(['prefix' => '/website'], function () {
+                Route::controller(SettingsController::class)->group(function () {
+                    Route::get('/setting', 'Website')->name('website');
+                    Route::post('/store', 'Website_Store')->name('website.store');
+                    Route::post('/update/{id}', 'Website_Update')->name('website.update');
                 });
             });
         });

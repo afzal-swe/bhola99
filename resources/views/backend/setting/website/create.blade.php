@@ -1,6 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
 
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -11,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><- Go To Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('backend_home_page') }}"><- Go To Home</a></li>
               <li class="breadcrumb-item active">DataTables</li>
             </ol>
           </div>
@@ -32,79 +33,54 @@
                         <div class="card-body">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                  <h4 class="modal-title">Website info Update Form</h4>
-                                  {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button> --}}
+                                  <h4 class="modal-title">Website info Insert</h4>
+                                 
                                 </div>
                                 <div class="modal-body">
-                                    <form action="#" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('website.store') }}" method="post" enctype="multipart/form-data">
                                         @csrf
                     
                                         <div class="card-body">
 
                                             <div class="form-group">
                                                 <label for="">Website Name</label>
-                                                <input type="text" name="website_name" class="form-control" value="{{ $setting->website_name }}">
+                                                <input type="text" name="website_name" class="form-control" value="{{ old('website_name') }}" placeholder="Website Name">
                                             </div>
                     
                                             <div class="form-group">
-                                                <label for="">Website Logo</label>
-                                                <input type="file" name="logo" class="form-control">
-                                                <input type="hidden" name="old_logo" value="{{ $setting->logo }}">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="">Website Favicon</label>
-                                                <input type="file" name="favicon" class="form-control">
-                                                <input type="hidden" name="old_favicon" value="{{ $setting->favicon }}">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="">Currency</label>
-                                                <select name="currency" id="" class="form-control">
-                                                    <option selected disabled>-- Choose Currency --</option>
-
-                                                    <option value="$" @if ($setting->currency == "$") selected @endif >USD ($)</option>
-                                                    <option value="৳" @if ($setting->currency == "৳") selected @endif >Taka (৳)</option>
-                                                    <option value="₹" @if ($setting->currency == "₹") selected @endif >Rupee ⟨₹⟩</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
                                                 <label for="">Phone One</label>
-                                                <input type="number" name="phone_one" class="form-control" value="{{ $setting->phone_one }}">
+                                                <input type="number" name="phone_one" class="form-control" value="{{ old('phone_one') }}" placeholder="Phone One" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Phone Two</label>
-                                                <input type="number" name="phone_two" class="form-control" value="{{ $setting->phone_two }}">
+                                                <input type="number" name="phone_two" class="form-control" value="{{ old('phone_two') }}" placeholder="Phone Two" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Main Email</label>
-                                                <input type="email" name="main_email" class="form-control" value="{{ $setting->main_email }}">
+                                                <input type="email" name="main_email" class="form-control" value="{{ old('main_email') }}" placeholder="example@gmail.com">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Support Email</label>
-                                                <input type="email" name="support_email" class="form-control" value="{{ $setting->support_email }}">
+                                                <input type="email" name="support_email" class="form-control" value="{{ old('support_email') }}" placeholder="support@gmail.com">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Address</label>
-                                                <input type="text" name="address" class="form-control" value="{{ $setting->address }}">
+                                                <input type="text" name="address" class="form-control" placeholder="Address">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="">Description</label>
-                                                <textarea name="description" id="summernote" cols="30" rows="10">{!! $setting->description !!}</textarea>
+                                                <textarea name="description" id="summernote" cols="130" rows="10"></textarea>
                                             </div>
 
                                            
         
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary">Update Information</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                             </div>
                                         </div>
                                     </form>
@@ -118,5 +94,8 @@
         </div>
     </section>
   </div>
+
+
+
 
 @endsection

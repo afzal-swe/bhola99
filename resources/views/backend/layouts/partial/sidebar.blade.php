@@ -155,7 +155,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('seo.setting') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Seo Setting</p>
                 </a>
@@ -163,7 +163,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('website') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Website Setting</p>
                 </a>

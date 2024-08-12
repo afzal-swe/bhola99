@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><- Go To Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('backend_home_page') }}"><- Go To Home</a></li>
               <li class="breadcrumb-item active">DataTables</li>
             </ol>
           </div>
@@ -38,7 +38,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="#" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('seo.store') }}" method="post">
                                         @csrf
                     
                                         <div class="card-body">
@@ -46,6 +46,9 @@
                                             <div class="form-group">
                                                 <label for="">Author</label>
                                                 <input type="text" name="meta_author" class="form-control @error('meta_author') is-invalid @enderror" value="{{ old('meta_author') }}">
+                                                @error('meta_author')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="form-group">
@@ -54,7 +57,7 @@
                                                 @error('meta_title')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
-                                              </div>
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="">Meta Keyword</label>
