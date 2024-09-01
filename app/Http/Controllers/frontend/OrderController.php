@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Stripe;
 
 
 class OrderController extends Controller
@@ -50,6 +52,8 @@ class OrderController extends Controller
             $data['image'] = $card_data->image;
             $data['created_at'] = Carbon::now();
 
+            // dd($card_data);
+
             DB::table($this->db_order)->insert($data);
 
             $cart_id = $card_data->id;
@@ -60,5 +64,66 @@ class OrderController extends Controller
 
         $notification = array('message' => 'Order Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
+    }
+
+    public function Stripe($total_price)
+    {
+        return view('frontend.stripe.stripe', compact('total_price'));
+    }
+
+    /**
+     * success response method.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function stripePost(Request $request, $total_price)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        Stripe\Charge::create([
+            "amount" => $total_price * 100,
+            "currency" => "usd",
+            "source" => $request->stripeToken,
+            "description" => "Thanks For Payment!"
+        ]);
+
+
+        $user = Auth::user()->id;
+
+
+        $data_view = DB::table($this->db_cart)->where('user_id', $user)->get();
+
+        // dd($user_id);
+        foreach ($data_view as $card_data) {
+
+            $data = array();
+            $data['first_name'] = $card_data->user_name;
+            $data['email'] = $card_data->user_email;
+            $data['phone'] = $card_data->user_phone;
+            $data['address'] = $card_data->user_address;
+            $data['user_id'] = $card_data->user_id;
+
+            $data['product_name'] = $card_data->product_title;
+            $data['payment_status'] = "Paid";
+            $data['delivery_status'] = "Processing";
+            $data['product_price'] = $card_data->price;
+            $data['product_quantity'] = $card_data->quantity;
+            $data['product_id'] = $card_data->product_id;
+            $data['total'] = $card_data->price;
+            $data['image'] = $card_data->image;
+            $data['created_at'] = Carbon::now();
+
+            // dd($card_data);
+
+            DB::table($this->db_order)->insert($data);
+
+            $cart_id = $card_data->id;
+
+            $cart_delete = DB::table($this->db_cart)->where('id', $cart_id)->delete();
+        }
+
+        Session::flash('success', 'Payment successful!');
+
+        return back();
     }
 }

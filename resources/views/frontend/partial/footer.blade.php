@@ -23,10 +23,9 @@
                    <h3>Menu</h3>
                    <ul>
                       <li><a href="{{ route('frontend_home_page') }}">Home</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Testimonial</a></li>
-                      <li><a href="#">Blog</a></li>
+                      
+                     
+                      <li><a href="{{ route('blog.view') }}">Blog</a></li>
                       <li><a href="{{ route('contact.view') }}">Contact</a></li>
                    </ul>
                 </div>
@@ -39,14 +38,13 @@
                       <li><a href="#">Checkout</a></li>
                       <li><a href="#">Login</a></li>
                       <li><a href="#">Register</a></li>
-                      <li><a href="#">Shopping</a></li>
-                      <li><a href="#">Widget</a></li>
+                      
                    </ul>
                 </div>
              </div>
                 </div>
              </div>     
-             <div class="col-md-5">
+             {{-- <div class="col-md-5">
                 <div class="widget_menu">
                    <h3>Newsletter</h3>
                    <div class="information_f">
@@ -63,7 +61,32 @@
                       </form>
                    </div>
                 </div>
-             </div>
+             </div> --}}
+             <div class="col-md-5 footer-col">
+               <div class="footer_detail">
+                  <a href="index.html" class="footer-logo">
+                  Famms
+                  </a>
+                  <p>
+                     Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+                  </p>
+                  <div class="footer_social p-2">
+                     <a href="">
+                     <i class="fa fa-facebook p-2" aria-hidden="true"></i>
+                     </a>
+                     <a href="">
+                     <i class="fa fa-twitter p-2" aria-hidden="true"></i>
+                     </a>
+                     <a href="">
+                     <i class="fa fa-linkedin p-2" aria-hidden="true"></i>
+                     </a>
+                     <a href="">
+                     <i class="fa fa-instagram p-2" aria-hidden="true"></i>
+                     </a>
+                     
+                  </div>
+               </div>
+            </div>
              </div>
           </div>
        </div>

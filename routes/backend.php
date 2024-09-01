@@ -11,7 +11,7 @@ use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\CartController;
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['prefix' => '/author'], function () {
 
         Route::controller(HomeController::class)->group(function () {

@@ -1,3 +1,5 @@
+
+
 <header class="header_section">
     <div class="container">
        <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -10,16 +12,16 @@
                 <li class="nav-item active">
                    <a class="nav-link" href="{{ route('frontend_home_page') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-               
+{{--                
                 <li class="nav-item">
                    <a class="nav-link" href="#">About</a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                    <a class="nav-link" href="{{ route('product.view') }}">Products</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="blog_list.html">Blog</a>
+                   <a class="nav-link" href="{{ route('blog.view') }}">Blog</a>
                 </li>
                 
                 <li class="nav-item">
@@ -27,7 +29,8 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('show_cart') }}">Cart [ 0 ]</a>
+                 
+                  <a class="nav-link" href="{{ route('show_cart') }}">Cart</a>
                </li>
 
                 @if (Route::has('login'))

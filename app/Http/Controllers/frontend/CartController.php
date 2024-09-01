@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -50,8 +51,11 @@ class CartController extends Controller
 
             DB::table($this->db_cart)->insert($data);
 
-            $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
-            return redirect()->back()->with($notification);
+            Alert::success('Add to Cart Successfully', 'We have addeed product to the cart');
+            return redirect()->back();
+
+            // $notification = array('message' => 'Add to Cart Successfully', 'alert-type' => 'success');
+            // return redirect()->back()->with($notification);
         } else {
             return redirect('login');
         }
@@ -78,7 +82,7 @@ class CartController extends Controller
     {
         DB::table($this->db_cart)->where('id', $id)->delete();
 
-        $notification = array('message' => 'Cart Delete Successfully', 'alert-type' => 'success');
-        return redirect()->back()->with($notification);
+        Alert::warning('Product Removed Successfully', 'We have removed product to the cart');
+        return redirect()->back();
     }
 }

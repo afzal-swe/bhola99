@@ -51,7 +51,7 @@
         </div><br>
       
             <a href="{{ route('cash_order') }}" class="btn btn-info" >Cash On Delivery</a>
-            <a href="#" class="btn btn-info" >Pay Using Card</a>
+            <a href="{{ route('stripe',$total_price) }}" class="btn btn-info" >Pay Using Card</a>
            
     </div> <!-- end col -->
 </div><br><br>

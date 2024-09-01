@@ -6,6 +6,7 @@ use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\OrderController;
+use App\Http\Controllers\frontend\BlogController;
 
 
 
@@ -19,6 +20,13 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['prefix' => '/contact'], function () {
         Route::controller(ContactController::class)->group(function () {
             Route::get('/', 'Contact_View')->name('contact.view');
+        });
+    });
+
+    // Contact Route Section 
+    Route::group(['prefix' => '/blog'], function () {
+        Route::controller(BlogController::class)->group(function () {
+            Route::get('/', 'Blog')->name('blog.view');
         });
     });
 
@@ -41,6 +49,8 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['prefix' => '/order'], function () {
         Route::controller(OrderController::class)->group(function () {
             Route::get('/cash', 'Cash_Order')->name('cash_order');
+            Route::get('/stripe/{total_price}', 'Stripe')->name('stripe');
+            Route::post('stripe/{total_price}', 'stripePost')->name('stripe.post');
         });
     });
 });

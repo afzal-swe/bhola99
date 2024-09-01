@@ -23,6 +23,12 @@
    </head>
    <body>
       <div class="hero_area">
+
+         {{-- Sweet Alart  --}}
+
+         @include('sweetalert::alert')
+
+
          <!-- header section strats -->
         @include('frontend.partial.header')
          <!-- end header section -->
