@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 use Stripe;
 
 
@@ -125,5 +126,34 @@ class OrderController extends Controller
         Session::flash('success', 'Payment successful!');
 
         return back();
+    }
+
+    // view Order Controller
+    public function View_Order()
+    {
+        if (Auth::id()) {
+            $user = Auth::user();
+            $user_id = $user->id;
+
+            $order = DB::table($this->db_order)->where('user_id', $user_id)->get();
+            return view('frontend.order.order', compact('order'));
+        } else {
+            return redirect('login');
+        }
+    }
+
+
+    // Cancel Order
+    public function Order_Cancel($id)
+    {
+        $order = DB::table($this->db_order)->where('id', $id)->first();
+
+        $data = array();
+        $data['delivery_status'] = '2';
+
+        DB::table($this->db_order)->where('id', $id)->update($data);
+
+        Alert::success('Order Cancel Successfully', 'We have addeed product to the cart');
+        return redirect()->back();
     }
 }

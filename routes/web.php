@@ -51,6 +51,8 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/cash', 'Cash_Order')->name('cash_order');
             Route::get('/stripe/{total_price}', 'Stripe')->name('stripe');
             Route::post('stripe/{total_price}', 'stripePost')->name('stripe.post');
+            Route::get('/view', 'View_Order')->name('order_view');
+            Route::get('/cancel/{id}', 'Order_Cancel')->name('orders.destroy');
         });
     });
 });

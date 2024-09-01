@@ -63,7 +63,11 @@ class OrderController extends Controller
     {
 
         $search_test = $request->search;
-        $order = DB::table($this->db_orders)->where('first_name', 'LIKE', "%$search_test%")->orderBy('id', 'DESC')->get();
+        $order = DB::table($this->db_orders)->where('first_name', 'LIKE', "%$search_test%")
+            ->orWhere('phone', 'LIKE', "%$search_test%")
+            ->orWhere('product_name', 'LIKE', "%$search_test%")
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('backend.order.order_view', compact('order'));
     }
 }

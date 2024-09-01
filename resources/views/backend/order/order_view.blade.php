@@ -75,7 +75,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach ($order as $key=>$row)
+                  @forelse ($order as $key=>$row)
                
                     <tr>
                       <td>{{ ++$key }}</td>
@@ -101,7 +101,16 @@
                       </td>
                       
                     </tr>
-                  @endforeach
+
+
+                    @empty
+                    <tr>
+                      <td colspan="16">
+                        No Data Found
+                      </td>
+                    </tr>
+
+                  @endforelse
                 
               </table>
             </div>
