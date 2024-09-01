@@ -61,6 +61,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 // Route::get('/edit/{slug}', 'Product_Edit')->name('product.edit');
                 // Route::post('/update/{slug}', 'Product_Update')->name('product.update');
                 Route::get('/delete/{id}', 'Order_Delete')->name('order.delete');
+                Route::get('/search', 'Order_Search')->name('search');
             });
         });
 

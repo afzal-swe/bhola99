@@ -30,7 +30,32 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">All Order View </h3>
+              {{-- <div class="card-tools">
+
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <form action="{{ route('search') }}" method="get">
+                    @csrf
+                    <input type="text" name="search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default float-right">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div> --}}
+              
+              <div style="float: right">
+                <form action="{{ route('search') }}" method="get">
+                  @csrf
+                  <input type="text" class="outline-primary" name="search" placeholder="Search">
+
+                  <input type="submit" value="Search" class="btn btn-outline-primary">
+                </form>
+              </div>
             </div>
+            
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">

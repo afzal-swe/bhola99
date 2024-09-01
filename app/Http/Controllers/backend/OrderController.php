@@ -57,4 +57,13 @@ class OrderController extends Controller
         $notification = array('messege' => 'Delete Successfully !', 'alert-type' => 'error');
         return redirect()->route('orders_view')->with($notification);
     }
+
+    // Order Search function
+    public function Order_Search(Request $request)
+    {
+
+        $search_test = $request->search;
+        $order = DB::table($this->db_orders)->where('first_name', 'LIKE', "%$search_test%")->orderBy('id', 'DESC')->get();
+        return view('backend.order.order_view', compact('order'));
+    }
 }
