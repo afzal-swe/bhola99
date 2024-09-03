@@ -1,3 +1,15 @@
+
+
+@php
+  $user = DB::table('users')->get();
+  $categories = DB::table('categories')->get();
+  $contacts = DB::table('contacts')->get();
+@endphp
+
+
+
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
    
 
@@ -34,7 +46,7 @@
               <p>
                 User Section
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ count($user) }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -52,9 +64,29 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
+                Home Slider
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('home_slider_view') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Slider</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
                 Category Section
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">{{ count($categories) }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -138,6 +170,18 @@
 
           {{-- Order Options --}}
           <li class="nav-item">
+            <a href="{{ route('admin_contact_view') }}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Contact
+                <span class="badge badge-info right">{{ count($contacts) }}</span>
+              </p>
+            </a>
+           
+          </li>
+
+          {{-- Order Options --}}
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -166,6 +210,26 @@
                 <a href="{{ route('website') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Website Setting</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- Order Options End --}}
+
+           {{-- Order Options --}}
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Loingout
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin_logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>

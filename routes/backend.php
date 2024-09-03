@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\CartController;
+use App\Http\Controllers\backend\HomeSliderController;
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -16,6 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::controller(HomeController::class)->group(function () {
             Route::get('/', 'backend_home_page')->name('backend_home_page');
+            Route::get('/admin-logout', 'Admin_Logout')->name('admin_logout');
         });
 
         // User Section
@@ -26,6 +28,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/edit/{id}', 'User_Edit');
                 // Route::post('/update', 'Category_Update')->name('category.update');
                 Route::get('/delete/{slug}', 'User_Delete')->name('user.delete');
+            });
+        });
+        // User Section
+        Route::group(['prefix' => '/home-slider'], function () {
+            Route::controller(HomeSliderController::class)->group(function () {
+                Route::get('/', 'Home_Slider_View')->name('home_slider_view');
+                Route::post('/store', 'Home_Slider_Store')->name('home_slider,store');
+                Route::get('/delete/{id}', 'Slider_Delete')->name('slider.delete');
             });
         });
 

@@ -72,4 +72,13 @@ class HomeController extends Controller
             ->first();
         return view('frontend.product.product_details', compact('details'));
     }
+
+
+    // Admin Logout function 
+    public function Admin_Logout()
+    {
+        Auth::logout();
+        $notification = array('messege' => 'Logout Successfully', 'alert-type' => 'success');
+        return redirect()->route('frontend_home_page')->with($notification);
+    }
 }

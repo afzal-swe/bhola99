@@ -1,16 +1,24 @@
 
+
+
+@php
+   $setting = DB::table('website_settings')->first();
+   $socials = DB::table('socials')->first();
+@endphp
+
 <footer>
     <div class="container">
        <div class="row">
           <div class="col-md-4">
               <div class="full">
                  <div class="logo_footer">
-                   <a href="{{ route('frontend_home_page') }}"><img width="210" src="{{ asset('frontend/images/logo.png') }}" alt="#" /></a>
+                   {{-- <a href="{{ route('frontend_home_page') }}"><img width="210" src="{{ asset('frontend/images/logo.png') }}" alt="#" /></a> --}}
+                   <h1 class="bg-primary p-2"><a href="{{ route('frontend_home_page') }}" class="p-5 text-white">{{ $setting->website_name ?? '' }}</a></h1>
                  </div>
                  <div class="information_f">
-                   <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                   <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                   <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                   <p><strong>ADDRESS:</strong> {{ $setting->address ?? "address" }}</p>
+                   <p><strong>PHONE:</strong> {{ $setting->phone_one ?? "address" }}</p>
+                   <p><strong>EMAIL:</strong> {{ $setting->main_email ?? "address" }}</p>
                  </div>
               </div>
           </div>
@@ -36,8 +44,8 @@
                    <ul>
                       <li><a href="#">Account</a></li>
                       <li><a href="#">Checkout</a></li>
-                      <li><a href="#">Login</a></li>
-                      <li><a href="#">Register</a></li>
+                      <li><a href="{{ route('login') }}">Login</a></li>
+                      <li><a href="{{ route('register') }}">Register</a></li>
                       
                    </ul>
                 </div>
@@ -64,23 +72,23 @@
              </div> --}}
              <div class="col-md-5 footer-col">
                <div class="footer_detail">
-                  <a href="index.html" class="footer-logo">
-                  Famms
+                  <a href="#" class="footer-logo">
+                 Socials Ling
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
                   </p>
                   <div class="footer_social p-2">
-                     <a href="">
+                     <a href="{{ $socials->facebook ?? '#' }}">
                      <i class="fa fa-facebook p-2" aria-hidden="true"></i>
                      </a>
-                     <a href="">
+                     <a href="{{ $socials->twitter ?? '#' }}">
                      <i class="fa fa-twitter p-2" aria-hidden="true"></i>
                      </a>
-                     <a href="">
+                     <a href="{{ $socials->linkedin ?? '#' }}">
                      <i class="fa fa-linkedin p-2" aria-hidden="true"></i>
                      </a>
-                     <a href="">
+                     <a href="{{ $socials->instagram ?? '#' }}">
                      <i class="fa fa-instagram p-2" aria-hidden="true"></i>
                      </a>
                      
@@ -94,7 +102,7 @@
  </footer>
  <!-- footer end -->
  <div class="cpy_">
-    <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">CodeArtist.IT</a><br>
+    <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://www.facebook.com/codeartist.IT">CodeArtist.IT</a><br>
 
     
     </p>

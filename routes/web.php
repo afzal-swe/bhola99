@@ -20,6 +20,9 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['prefix' => '/contact'], function () {
         Route::controller(ContactController::class)->group(function () {
             Route::get('/', 'Contact_View')->name('contact.view');
+            Route::post('/send', 'Send_Message')->name('send.message');
+            Route::get('/view', 'Admin_Contact_View')->name('admin_contact_view');
+            Route::get('/delete/{id}', 'Admin_Contact_Delete')->name('contact.delete');
         });
     });
 
