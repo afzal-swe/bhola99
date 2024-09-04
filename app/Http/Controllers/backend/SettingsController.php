@@ -14,6 +14,20 @@ class SettingsController extends Controller
     private $db_seos;
     private $db_website_settings;
 
+
+
+
+
+
+
+    /**
+     * Construct a new instance of the class.
+     *
+     * This constructor initializes database table names used in the class:
+     * - `seos` for SEO settings
+     * - `socials` for social media settings
+     * - `website_settings` for general website settings
+     */
     public function __construct()
     {
         $this->db_seos = "seos";
@@ -21,11 +35,23 @@ class SettingsController extends Controller
         $this->db_website_settings = "website_settings";
     }
 
-    // Social Function
+
+
+
+
+
+
+
+    /**
+     * Show the social media settings form.
+     *
+     * If social media settings exist, display the update form with the current settings.
+     * Otherwise, show the form to create new social media settings.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Social()
     {
-
-
         $social = DB::table($this->db_socials)->first();
 
         if ($social) {
@@ -35,7 +61,22 @@ class SettingsController extends Controller
         }
     }
 
-    // Social Link Store
+
+
+
+
+
+
+
+
+    /**
+     * Store new social media settings.
+     *
+     * Validate the request input and insert the new social media settings into the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Social_Store(Request $request)
     {
 
@@ -57,7 +98,22 @@ class SettingsController extends Controller
         $notification = array('messege' => 'Social Insert Successfully !!', 'alert-type' => "success");
         return redirect()->back()->with($notification);
     }
-    // Social Update Function
+
+
+
+
+
+
+
+    /**
+     * Update existing social media settings.
+     *
+     * Validate the request input and update the social media settings in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Social_Update(Request $request, $id)
     {
 
@@ -82,6 +138,17 @@ class SettingsController extends Controller
 
     /// ===== Seo Function Start ======= ////
 
+
+
+
+
+    /**
+     * Show the SEO settings form.
+     *
+     * Retrieves SEO settings from the database. If settings exist, displays the update form; otherwise, displays the create form.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Seo()
     {
         $seo = DB::table($this->db_seos)->first();
@@ -93,7 +160,21 @@ class SettingsController extends Controller
         }
     }
 
-    // Seo Store Function
+
+
+
+
+
+
+
+    /**
+     * Store new SEO settings.
+     *
+     * Validates and stores SEO settings in the database. Requires meta author, title, keyword, description, Google Analytics, Google Verification, and Alexa Analytics.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Seo_Store(Request $request)
     {
 
@@ -123,7 +204,22 @@ class SettingsController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    // Seo Update Function
+
+
+
+
+
+
+
+    /**
+     * Update existing SEO settings.
+     *
+     * Updates SEO settings in the database. Requires meta author, title, keyword, description, Google Analytics, Google Verification, and Alexa Analytics.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id The ID of the SEO settings to update
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Seo_Update(Request $request, $id)
     {
 
@@ -148,6 +244,16 @@ class SettingsController extends Controller
 
     /// ===== Website Function Start ======= ////
 
+
+
+
+    /**
+     * Show website settings page.
+     *
+     * Displays the form for creating or updating website settings based on whether settings already exist.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Website()
     {
 
@@ -160,7 +266,20 @@ class SettingsController extends Controller
         }
     }
 
-    // Website Data Store Function
+
+
+
+
+
+
+    /**
+     * Store new website settings.
+     *
+     * Validates and saves website settings to the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Website_Store(Request $request)
     {
 
@@ -180,7 +299,22 @@ class SettingsController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    // Website Settings Update Function
+
+
+
+
+
+
+
+    /**
+     * Update existing website settings.
+     *
+     * Validates and updates website settings in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Website_Update(Request $request, $id)
     {
 

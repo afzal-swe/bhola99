@@ -18,22 +18,42 @@ class OrderController extends Controller
     private $db_order;
     private $db_cart;
 
+
+
+
+    /**
+     * Constructor to initialize database table names.
+     */
     public function __construct()
     {
         $this->db_order = "orders";
         $this->db_cart = "cart";
     }
 
-    // 
+
+
+
+
+
+
+
+    /**
+     * Place a cash on delivery order.
+     *
+     * This method retrieves the current user's cart items, creates a new order for each item, 
+     * and then deletes the item from the cart.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Cash_Order()
     {
 
         $user = Auth::user()->id;
 
-
+        // Retrieve cart items for the current user
         $data_view = DB::table($this->db_cart)->where('user_id', $user)->get();
 
-        // dd($user_id);
+        // Process each cart item
         foreach ($data_view as $card_data) {
 
             $data = array();
@@ -55,32 +75,61 @@ class OrderController extends Controller
 
             // dd($card_data);
 
+            // Insert order data into the orders table
             DB::table($this->db_order)->insert($data);
 
             $cart_id = $card_data->id;
 
+            // Delete the item from the cart
             $cart_delete = DB::table($this->db_cart)->where('id', $cart_id)->delete();
         }
 
-
+        // Redirect back with a success notification
         $notification = array('message' => 'Order Successfully', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 
+
+
+
+
+
+
+    /**
+     * Show the Stripe payment page.
+     *
+     * This method returns the view for Stripe payment, passing the total price of the order.
+     *
+     * @param float $total_price The total price of the order
+     * @return \Illuminate\View\View
+     */
     public function Stripe($total_price)
     {
         return view('frontend.stripe.stripe', compact('total_price'));
     }
 
+
+
+
+
+
+
     /**
-     * success response method.
+     * Handle the Stripe payment and create an order.
      *
-     * @return \Illuminate\Http\Response
+     * This method processes the payment using Stripe, then creates an order entry and deletes the items from the cart.
+     *
+     * @param \Illuminate\Http\Request $request The request instance containing payment details
+     * @param float $total_price The total price of the order
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function stripePost(Request $request, $total_price)
     {
+        // Set the Stripe API key
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
+
+        // Create a charge using Stripe
         Stripe\Charge::create([
             "amount" => $total_price * 100,
             "currency" => "usd",
@@ -89,12 +138,14 @@ class OrderController extends Controller
         ]);
 
 
+        // Retrieve the authenticated user's ID
         $user = Auth::user()->id;
 
 
+        // Get cart items for the user
         $data_view = DB::table($this->db_cart)->where('user_id', $user)->get();
 
-        // dd($user_id);
+        // Iterate over cart items and create orders
         foreach ($data_view as $card_data) {
 
             $data = array();
@@ -116,19 +167,36 @@ class OrderController extends Controller
 
             // dd($card_data);
 
+            // Insert the order data into the database
             DB::table($this->db_order)->insert($data);
 
             $cart_id = $card_data->id;
 
+            // Delete the item from the cart
             $cart_delete = DB::table($this->db_cart)->where('id', $cart_id)->delete();
         }
 
+        // Flash a success message to the session
         Session::flash('success', 'Payment successful!');
 
+        // Redirect back to the previous page
         return back();
     }
 
-    // view Order Controller
+
+
+
+
+
+
+
+    /**
+     * Display the orders for the authenticated user.
+     *
+     * This method retrieves the orders for the currently authenticated user and returns a view to display them.
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function View_Order()
     {
         if (Auth::id()) {
@@ -143,7 +211,19 @@ class OrderController extends Controller
     }
 
 
-    // Cancel Order
+
+
+
+
+
+    /**
+     * Cancel an order.
+     *
+     * This method updates the delivery status of a specific order to "canceled" (status code '2').
+     *
+     * @param int $id The ID of the order to be canceled.
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Order_Cancel($id)
     {
         $order = DB::table($this->db_order)->where('id', $id)->first();

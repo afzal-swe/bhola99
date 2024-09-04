@@ -19,6 +19,17 @@ class UserController extends Controller
         $this->db_user = "users";
     }
 
+
+
+
+
+    /**
+     * Display a listing of all users.
+     *
+     * Retrieves all users from the database and returns a view with the list.
+     *
+     * @return \Illuminate\View\View
+     */
     public function User_View()
     {
         $all_user = DB::table($this->db_user)->orderBy('id', 'DESC')->get();
@@ -26,7 +37,20 @@ class UserController extends Controller
         return view('backend.user.view_user', compact('all_user'));
     }
 
-    // User Store Function
+
+
+
+
+
+
+    /**
+     * Store a newly created user in the database.
+     *
+     * Validates the request data, hashes the password, and inserts the user into the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function User_Store(Request $request)
     {
 
@@ -50,7 +74,21 @@ class UserController extends Controller
         $notification = array('messege' => 'Added Successfully !', 'alert-type' => 'error');
         return redirect()->route('user.view')->with($notification);
     }
-    // User Edit Function
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing a specified user.
+     *
+     * Retrieves the user data by ID and returns the view with the user details.
+     *
+     * @param int $id
+     * @return \Illuminate\View\View
+     */
     public function User_Edit($id)
     {
 
@@ -58,7 +96,21 @@ class UserController extends Controller
         return view('backend.user.update_user', compact('edit'));
     }
 
-    // User Delete Function
+
+
+
+
+
+
+
+    /**
+     * Remove the specified user from the database.
+     *
+     * Deletes the user with the given slug and returns a redirect with a notification.
+     *
+     * @param string $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function User_Delete($slug)
     {
 

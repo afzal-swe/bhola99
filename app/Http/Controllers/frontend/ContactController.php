@@ -14,17 +14,48 @@ class ContactController extends Controller
 
     private $db_contacts;
 
+
+
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_contacts = 'contacts';
     }
 
+
+
+
+
+
+    /**
+     * Show the contact view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Contact_View()
     {
         return view('frontend.contact.contact');
     }
 
 
+
+
+
+
+
+    /**
+     * Store a new contact message.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Send_Message(Request $request)
     {
         $validate = $request->validate([
@@ -54,7 +85,15 @@ class ContactController extends Controller
     }
 
 
-    // Adin Contact view function
+
+
+
+
+    /**
+     * Display all contact messages for the admin.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Admin_Contact_View()
     {
         $view = DB::table($this->db_contacts)->get();
@@ -62,10 +101,19 @@ class ContactController extends Controller
     }
 
 
+
+
+
+
+
+    /**
+     * Delete a contact message by its ID.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Admin_Contact_Delete($id)
     {
-
-
         DB::table($this->db_contacts)->where('id', $id)->delete();
 
         Alert::success('Message Delete Successfully', 'We have addeed product to the cart');

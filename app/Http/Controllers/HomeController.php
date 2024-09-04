@@ -16,6 +16,13 @@ class HomeController extends Controller
     private $db_order;
 
 
+
+
+    /**
+     * Constructor to initialize database table names.
+     *
+     * This method sets up the names of the database tables used in this controller.
+     */
     public function __construct()
     {
         $this->db_users = "users";
@@ -25,6 +32,20 @@ class HomeController extends Controller
         $this->db_order = "orders";
     }
 
+
+
+
+
+
+
+    /**
+     * Display the backend home page.
+     *
+     * This method retrieves various statistics for the admin dashboard if the authenticated user is an admin.
+     * If the user is not an admin, it redirects to the frontend main page.
+     *
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function backend_home_page()
     {
 
@@ -42,6 +63,7 @@ class HomeController extends Controller
             $order = DB::table($this->db_order)->get();
 
 
+            // Calculate total revenue
             $total_reveneue = 0;
             foreach ($order as $order) {
                 $total_reveneue = $total_reveneue + $order->product_price;
@@ -53,7 +75,19 @@ class HomeController extends Controller
         }
     }
 
-    // Frontend Home Page
+
+
+
+
+
+
+    /**
+     * Display the frontend home page.
+     *
+     * This method returns the view for the frontend main page.
+     *
+     * @return \Illuminate\View\View
+     */
     public function frontend_home_page()
     {
         return view('frontend.main');
@@ -62,7 +96,19 @@ class HomeController extends Controller
 
 
 
-    /// Product Details
+
+
+
+
+    /**
+     * Display the details of a product.
+     *
+     * This method retrieves the details of a product based on the provided slug
+     * and returns the view for the product details page.
+     *
+     * @param string $slug The slug of the product.
+     * @return \Illuminate\View\View
+     */
     public function Product_Details($slug)
     {
         $details = DB::table($this->db_products)
@@ -74,7 +120,20 @@ class HomeController extends Controller
     }
 
 
-    // Admin Logout function 
+
+
+
+
+
+
+    /**
+     * Logout the admin user.
+     *
+     * This method logs out the currently authenticated admin user and redirects
+     * to the frontend home page with a success notification.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Admin_Logout()
     {
         Auth::logout();

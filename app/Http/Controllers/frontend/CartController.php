@@ -15,12 +15,31 @@ class CartController extends Controller
     private $db_products;
     private $db_cart;
 
+
+
+
+    /**
+     * Constructor to initialize database table names.
+     */
     public function __construct()
     {
         $this->db_products = "products";
         $this->db_cart = "cart";
     }
 
+
+
+
+
+
+
+    /**
+     * Add a product to the cart for the authenticated user.
+     *
+     * @param Request $request
+     * @param string $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Add_To_Cart(Request $request, $slug)
     {
 
@@ -61,7 +80,17 @@ class CartController extends Controller
         }
     }
 
-    // Show Cart Function
+
+
+
+
+
+
+    /**
+     * Display the cart for the authenticated user.
+     *
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function Show_Cart()
     {
 
@@ -77,7 +106,18 @@ class CartController extends Controller
         }
     }
 
-    // Remoce Cart Function
+
+
+
+
+
+
+    /**
+     * Remove a product from the cart.
+     *
+     * @param int $id The ID of the product to remove from the cart.
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Cart_Product_Remove($id)
     {
         DB::table($this->db_cart)->where('id', $id)->delete();

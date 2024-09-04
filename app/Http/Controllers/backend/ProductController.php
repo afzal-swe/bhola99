@@ -15,12 +15,38 @@ class ProductController extends Controller
     private $db_products;
     private $db_category;
 
+
+
+
+
+    /**
+     * Create a new instance of the controller.
+     *
+     * This constructor initializes the 'db_products' property with the name of the 'products' table and the 'db_category'
+     * property with the name of the 'categories' table.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_products = "products";
         $this->db_category = "categories";
     }
 
+
+
+
+
+
+    /**
+     * Display the list of products.
+     *
+     * This method retrieves all products from the 'products' table, along with their associated category names from the
+     * 'categories' table. The results are ordered by product ID in descending order. After retrieving the data, it returns
+     * the view for displaying the list of products.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Product_View()
     {
         $product = DB::table($this->db_products)
@@ -30,14 +56,43 @@ class ProductController extends Controller
         return view('backend.products.product_view', compact('product'));
     }
 
-    // Create Product From
+
+
+
+
+
+
+    /**
+     * Show the form for creating a new product.
+     *
+     * This method retrieves all categories from the 'categories' table and returns the view for creating a new product,
+     * passing the category data to the view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Products_Create()
     {
         $category = DB::table($this->db_category)->get();
         return view('backend.products.create_product', compact('category'));
     }
 
-    // Product Store Function
+
+
+
+
+
+
+
+    /**
+     * Store a newly created product in the database.
+     *
+     * This method validates the incoming request data for product creation, including title, image, price, and quantity.
+     * It then prepares the product data, including image processing, and inserts it into the 'products' table. After
+     * successfully storing the product, it redirects to the product view page with a success notification.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Product_Store(Request $request)
     {
         // dd($request->all());
@@ -74,7 +129,22 @@ class ProductController extends Controller
     }
 
 
-    // Product Edit Function
+
+
+
+
+
+
+    /**
+     * Show the form for editing a specific product.
+     *
+     * This method retrieves the product data based on the provided slug and also retrieves all categories from the
+     * 'categories' table. It then returns the view for editing the product, passing both the product data and category
+     * data to the view.
+     *
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
     public function Product_Edit($slug)
     {
         $edit = DB::table($this->db_products)->where('slug', $slug)->first();
@@ -83,11 +153,26 @@ class ProductController extends Controller
         return view('backend.products.product_update', compact('edit', 'category'));
     }
 
-    // Product Update Section
+
+
+
+
+
+
+
+    /**
+     * Update the specified product in the database.
+     *
+     * This method updates the product details in the 'products' table based on the provided slug. If a new image is
+     * uploaded, it will replace the old image and update the product record. If no new image is provided, the old
+     * image will be retained.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param string $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Product_Update(Request $request, $slug)
     {
-
-
 
         $data = array();
         $data['title'] = $request->title;
@@ -122,7 +207,22 @@ class ProductController extends Controller
         return redirect()->route('products.view')->with($notification);
     }
 
-    // Product Delete Function
+
+
+
+
+
+
+
+    /**
+     * Remove the specified product from the database.
+     *
+     * This method deletes the product record from the 'products' table based on the provided slug. If the product has
+     * an associated image, the image file will be removed from the server.
+     *
+     * @param string $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Product_Delete($slug)
     {
 

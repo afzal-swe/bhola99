@@ -11,12 +11,38 @@ class CartController extends Controller
     //
     private $db_cart;
 
+
+
+
+
+    /**
+     * Create a new instance of the controller.
+     *
+     * This constructor initializes the 'db_cart' property with the name of the 'cart' table.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_cart = "cart";
     }
 
-    // 
+
+
+
+
+
+
+
+
+    /**
+     * Display the contents of the cart.
+     *
+     * This method retrieves all items from the 'cart' table, ordered by ID in descending order, and returns
+     * the view for displaying the cart's contents.
+     *
+     * @return \Illuminate\View\View
+     */
     public function View_Cart()
     {
 
