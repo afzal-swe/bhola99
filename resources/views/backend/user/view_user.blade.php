@@ -62,7 +62,7 @@
                       </td>
                       <td>
                         <a href="#" class="btn btn-info btn-xs edit" data-id="{{ $row->id }}" data-toggle="modal" data-target="#editModal" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="{{ route('user.delete',$row->slug) }}" class="btn btn-danger btn-xs" title="Delete"><i class="fa fa-trash"></i></a>
+                        <a href="{{ route('user.delete',$row->id) }}" class="btn btn-danger btn-xs" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                       
                     </tr>

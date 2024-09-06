@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::post('/store', 'User_Store')->name('user.store');
                 Route::get('/edit/{id}', 'User_Edit');
                 // Route::post('/update', 'Category_Update')->name('category.update');
-                Route::get('/delete/{slug}', 'User_Delete')->name('user.delete');
+                Route::get('/delete/{id}', 'User_Delete')->name('user.delete');
             });
         });
         // User Section

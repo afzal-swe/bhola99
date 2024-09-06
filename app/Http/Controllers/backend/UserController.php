@@ -111,10 +111,10 @@ class UserController extends Controller
      * @param string $slug
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function User_Delete($slug)
+    public function User_Delete($id)
     {
 
-        DB::table($this->db_user)->where('slug', $slug)->delete();
+        DB::table($this->db_user)->where('id', $id)->delete();
 
         $notification = array('messege' => 'Delete Successfully !', 'alert-type' => 'error');
         return redirect()->route('user.view')->with($notification);
